@@ -5,7 +5,7 @@ require("lazy").setup({
     "BurntSushi/ripgrep",
     "folke/neodev.nvim",
     "nvim-tree/nvim-web-devicons",
-    {"nvim-telescope/telescope.nvim", branch = "0.1.x"},
+    { "nvim-telescope/telescope.nvim", branch = "0.1.x" },
     "ThePrimeagen/harpoon",
     "nvim-treesitter/nvim-treesitter",
     "mbbill/undotree",
@@ -23,5 +23,15 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
     "max397574/colortils.nvim",
-    "m4xshen/autoclose.nvim"
+    "m4xshen/autoclose.nvim",
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim",
+        }
+    }
 })

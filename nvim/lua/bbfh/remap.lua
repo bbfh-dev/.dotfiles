@@ -83,3 +83,6 @@ end)
 
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- Neotree
+vim.keymap.set("n", "<leader>fr", vim.cmd.Neotree)
