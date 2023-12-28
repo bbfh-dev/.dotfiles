@@ -33,5 +33,6 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
             "3rd/image.nvim",
         }
-    }
+    },
+    "nvim-telescope/telescope-ui-select.nvim"
 })
