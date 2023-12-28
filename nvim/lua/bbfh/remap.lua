@@ -35,6 +35,8 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>ls",
     [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Put maximized window back
+vim.keymap.set("n", "<C-w>t", "mAZZ<C-w>S`A<CR>")
 --[[
 
   PLUGINS:
@@ -85,4 +87,4 @@ end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- Neotree
-vim.keymap.set("n", "<leader>fr", vim.cmd.Neotree)
+vim.keymap.set("n", "<leader>fr", function() vim.cmd.Neotree("toggle") end)
