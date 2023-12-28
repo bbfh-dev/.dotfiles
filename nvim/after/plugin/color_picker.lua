@@ -37,6 +37,6 @@ require("colortils").setup({
         -- toggle transparency
         transparency = "T",
         -- choose the background (for transparent colors)
-        choose_background = "B"
-    }
+        choose_background = "B",
+    },
 })
