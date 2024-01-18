@@ -20,8 +20,9 @@ vim.keymap.set({ "n" }, "<C-p>", [[o<ESC>"+p]])
 -- Remove Q
 vim.keymap.set("n", "Q", "<nop>")
 
--- Tmux
-vim.keymap.set("n", "<C-g>", function() vim.cmd("!nohup sh ~/.local/bin/tmux-sessionizer.sh $PPID &") end)
+-- Run current file
+vim.keymap.set("n", "<leader>\\", ":!chmod +x %")
+vim.keymap.set("n", "<leader><CR>", ":!%<CR>")
 
 -- Quickfix list
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
