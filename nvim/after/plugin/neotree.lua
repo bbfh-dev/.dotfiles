@@ -13,10 +13,10 @@ require("neo-tree").setup({
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
-    enable_normal_mode_for_inputs = false,                         -- Enable normal mode for input dialogs.
+    enable_normal_mode_for_inputs = false,                             -- Enable normal mode for input dialogs.
     open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-    sort_case_insensitive = false,                                 -- used when sorting files and directories in the tree
-    sort_function = nil,                                           -- use a custom function for sorting files and directories in the tree
+    sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
+    sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
     -- sort_function = function (a,b)
     --       if a.type == b.type then
     --           return a.path > b.path
@@ -24,6 +24,14 @@ require("neo-tree").setup({
     --           return a.type > b.type
     --       end
     --   end , -- this sorts files and directories descendantly
+    event_handlers = {
+        {
+            event = "file_opened",
+            handler = function(_)
+                vim.cmd("Neotree close")
+            end
+        },
+    },
     default_component_configs = {
         container = {
             enable_character_fade = true
@@ -78,7 +86,7 @@ require("neo-tree").setup({
         -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
         file_size = {
             enabled = true,
-            required_width = 64, -- min width of window required to show this column
+            required_width = 20, -- min width of window required to show this column
         },
         type = {
             enabled = true,
@@ -94,7 +102,6 @@ require("neo-tree").setup({
         },
         symlink_target = {
             enabled = true,
-            required_width = 110, -- min width of window required to show this column
         },
     },
     -- A list of functions, each representing a global custom command
@@ -103,7 +110,7 @@ require("neo-tree").setup({
     commands = {},
     window = {
         position = "left",
-        width = 60,
+        width = 40,
         mapping_options = {
             noremap = true,
             nowait = true,
@@ -167,9 +174,12 @@ require("neo-tree").setup({
         filtered_items = {
             visible = false, -- when true, they will just be displayed differently than normal items
             hide_dotfiles = false,
-            hide_gitignored = true,
+            hide_gitignored = false,
             hide_hidden = true, -- only works on Windows for hidden files/directories
             hide_by_name = {
+                ".git",
+                "go.mod",
+                "go.sum",
                 --"node_modules"
             },
             hide_by_pattern = { -- uses glob style patterns
@@ -188,11 +198,11 @@ require("neo-tree").setup({
             },
         },
         follow_current_file = {
-            enabled = false,              -- This will find and focus the file in the active buffer every time
+            enabled = false,                    -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
-            leave_dirs_open = false,      -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+            leave_dirs_open = false,            -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = false,         -- when true, empty folders will be grouped together
+        group_empty_dirs = false,               -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -234,11 +244,11 @@ require("neo-tree").setup({
     },
     buffers = {
         follow_current_file = {
-            enabled = true,  -- This will find and focus the file in the active buffer every time
+            enabled = true,          -- This will find and focus the file in the active buffer every time
             --              -- the current file is changed while the tree is open.
             leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        group_empty_dirs = true,     -- when true, empty folders will be grouped together
         show_unloaded = true,
         window = {
             mappings = {
