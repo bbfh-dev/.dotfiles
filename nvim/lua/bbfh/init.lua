@@ -18,3 +18,16 @@ require("bbfh.options")
 require("bbfh.remap")
 
 vim.cmd.colorscheme("github_dark_default")
+
+vim.filetype.add({
+    extension = {
+        mcmeta = "mcmeta",
+        mcfunction = "mcfunction",
+    },
+    filename = {
+        ["pack.mcmeta"] = "mcmeta",
+    },
+    pattern = {
+        ["[%w_.-]+.mcmeta"] = "mcmeta",
+    },
+})

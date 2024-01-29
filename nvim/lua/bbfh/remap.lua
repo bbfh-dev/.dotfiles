@@ -57,21 +57,32 @@ vim.keymap.set("n", "<leader>+", vim.cmd.split)
 
 --]]
 
--- Color picker
-vim.keymap.set("n", "<leader>lcp", function() vim.cmd.Colortils("picker") end)
-
 -- Git
 vim.keymap.set("n", "<leader>gg", "<cmd>Git<CR>:resize 100%<CR>")
 vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<CR>")
 vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>")
-vim.keymap.set("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>")
-vim.keymap.set("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>")
-vim.keymap.set("n", "<leader>fgg", "<cmd>Telescope git_status<CR>")
+vim.keymap.set("n", "<leader>Gc", "<cmd>Telescope git_commits<CR>")
+vim.keymap.set("n", "<leader>Gb", "<cmd>Telescope git_branches<CR>")
+vim.keymap.set("n", "<leader>Gg", "<cmd>Telescope git_status<CR>")
 
 -- Git signs
 vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns toggle_signs<CR>")
 vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
+
+-- Git worktrees
+vim.keymap.set("n", "<leader><C-g>a", function()
+    local branch = vim.fn.input("(Create) Branch name → ")
+    require("git-worktree").create_worktree(branch, branch, "origin")
+end)
+vim.keymap.set("n", "<leader><C-g>g", function()
+    local branch = vim.fn.input("(Create) Branch name → ")
+    require("git-worktree").switch_worktree(branch)
+end)
+vim.keymap.set("n", "<leader><C-g>d", function()
+    local branch = vim.fn.input("(Delete) Branch name → ")
+    require("git-worktree").delete_worktree(branch)
+end)
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -129,3 +140,13 @@ vim.keymap.set("n", "]S", vim.cmd.DapStepInto)
 
 -- Swapper
 vim.keymap.set("n", "<leader>S", vim.cmd.ISwapWith)
+
+-- Markdown
+vim.keymap.set("n", "<leader>cm", vim.cmd.MarkdownPreview)
+
+-- Color picker
+vim.keymap.set("n", "<leader>lp", vim.cmd.PickColor)
+vim.keymap.set("i", "<leader>lp", vim.cmd.PickColorInsert)
+vim.keymap.set("n", "<leader>lP", function()
+    require("nvim-highlight-colors").toggle()
+end)

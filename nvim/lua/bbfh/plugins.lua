@@ -26,7 +26,6 @@ require("lazy").setup({
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
-    "max397574/colortils.nvim",
     "m4xshen/autoclose.nvim",
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -129,4 +128,13 @@ require("lazy").setup({
         event = "VeryLazy"
     },
     "lewis6991/gitsigns.nvim",
+    "ThePrimeagen/git-worktree.nvim",
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    'ziontee113/color-picker.nvim',
+    'brenoprata10/nvim-highlight-colors',
 })

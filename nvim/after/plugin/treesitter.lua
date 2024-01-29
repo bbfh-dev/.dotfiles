@@ -29,3 +29,15 @@ require("nvim-treesitter.configs").setup({
         additional_vim_regex_highlighting = false,
     },
 })
+vim.treesitter.language.register("json", "mcmeta")
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.mcfunction = {
+    filetype = "mcfunction",
+    install_info = {
+        url = "/home/main/.config/nvim.data/tree-sitter-mcfunction",
+        files = { "src/parser.c" },
+        branch = "main",
+        generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+        requires_generate_from_grammar = true,
+    }
+}
