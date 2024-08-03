@@ -118,10 +118,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="374.250335693359"
-         height="265.782348632812"
-         rx="3"
-         ry="3" />
+         width="177.250900268555"
+         height="68.9834213256836"
+         rx="34.4917106628418"
+         ry="34.4917106628418" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -158,8 +158,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="1"
-         ry="1"
+         rx="256"
+         ry="256"
          arc_type="0" />
       <eventcontext
          id="star"
@@ -344,8 +344,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="16"
-       y="16"
+       x="8.061523685"
+       y="12"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -385,7 +385,9 @@
        newgradient="2" />
     <eventcontext
        id="mesh"
-       selcue="1" />
+       selcue="1"
+       edit_fill="1"
+       edit_stroke="0" />
     <eventcontext
        id="zoom"
        selcue="1"
@@ -643,7 +645,7 @@
        default="org.inkscape.output.scour_inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/main/pictures/Logos/mcvm"
+       path="/home/main/public/git/github/eyecons/icons"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -1097,12 +1099,12 @@
      org.inkscape.render.poly_3d.th="0" />
   <group
      id="desktop"
-     style="fill:#000000;-inkscape-font-specification:Arial;font-family:Arial;font-size:16px;stroke-linecap:round;paint-order:stroke fill markers;stroke-linejoin:round;stroke-width:60">
+     style="fill:#cd2424;-inkscape-font-specification:'Lexend Bold';font-family:Lexend;font-size:32px;stroke-linecap:round;paint-order:stroke fill markers;stroke-width:16;font-weight:bold;stroke-linejoin:round;fill-opacity:0.15496016">
     <group
        width="1280"
-       height="668"
-       x="398"
-       y="-276"
+       height="698"
+       x="228"
+       y="-203"
        maximized="1"
        fullscreen="0"
        id="geometry" />

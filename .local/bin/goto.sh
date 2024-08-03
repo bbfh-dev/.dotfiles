@@ -7,12 +7,7 @@ move() {
 }
 
 goto() {
-	# mkdir -p ~/.local/share/scripts
-	# move ~/.local/share/scripts/4th ~/.local/share/scripts/5th
-	# move ~/.local/share/scripts/3rd ~/.local/share/scripts/4th
-	# move ~/.local/share/scripts/2nd ~/.local/share/scripts/3rd
-	# move ~/.local/share/scripts/1st-LATEST ~/.local/share/scripts/2nd
-	# ln -s $1 ~/.local/share/scripts/1st-LATEST
+	# ln -s $1 ~/.local/share/scripts/latest
 	cd -P $1
 }
 
@@ -40,8 +35,7 @@ if [[ $1 = "project" ]]; then
 fi
 
 if [[ $1 = "recent" ]]; then
-	selected=$(find ~/.local/share/scripts -mindepth 1 -maxdepth 1 -type d,l | fzf --preview='readlink -f {}; ls -a $(readlink -f {})')
-	goto $selected
+	cd -P ~/.local/share/scripts/latest
 	return
 fi
 

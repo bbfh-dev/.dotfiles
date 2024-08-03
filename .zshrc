@@ -107,10 +107,10 @@ alias git-bubblefish='git config --global user.email "daforsastudia@gmail.com"; 
 alias source-py="source venv/bin/activate"
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
-alias g="source goto project"
-alias gv="source goto project; nvim ."
-alias G="source goto recent"
-alias GV="source goto recent; nvim ."
+alias g="source goto.sh project"
+alias gv="source goto.sh project; nvim ."
+alias G="source goto.sh recent"
+alias GV="source goto.sh recent; nvim ."
 
 nd () {
   md $1
@@ -128,11 +128,14 @@ alias g-bbfh="cp ~/.git-credentials.bbfh-dev ~/.git-credentials"
 alias g-gideon="cp ~/.git-credentials.gideon ~/.git-credentials"
 alias g-smithed="cp ~/.git-credentials.smithed ~/.git-credentials"
 alias g-mend="cp ~/.git-credentials.mend ~/.git-credentials"
+alias g-tuxle="cp ~/.git-credentials.tuxle ~/.git-credentials"
 
 alias enumerate="awk '{print NR,\$0}'"
 function mkgomod {
   dir=$(pwd)
   go mod init github.com/bbfh-dev/$(basename $dir)
+  cp ~/templates/golang/.gitignore .gitignore
+  cp ~/templates/golang/* .
 }
 
 function dotfile {
@@ -142,6 +145,14 @@ function dotfile {
 
 alias dotfiles="cd ~/public/dotfiles"
 alias dotfiles-update="stow . -t $HOME"
+
+function fpkg {
+  paru -Ss $1 | less -R
+}
+
+function ipkg {
+  paru -S $1
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
